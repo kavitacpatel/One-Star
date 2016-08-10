@@ -1,0 +1,6 @@
+framework module Pods_One_StarTests {
+  umbrella header "Pods-One StarTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
