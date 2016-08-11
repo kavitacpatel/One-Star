@@ -25,7 +25,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     var ref: FIRDatabaseReference?
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var pwTxt: UITextField!
-    @IBOutlet weak var fbLoginBtn: FBSDKLoginButton!
+    @IBOutlet weak var fbLoginBtn: FBSDKLoginButton! = FBSDKLoginButton()
   
     
     override func viewDidLoad()
@@ -188,11 +188,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         }
         else
         {
-            if FBSDKAccessToken.current() != nil
-            {
-                
-            }
-            FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields":"first_name"]).start { (connection, result, error) -> Void in
+          
+            FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields":"first_name,last_name"]).start { (connection, result, error) -> Void in
                 
                 if error != nil
                 {

@@ -39,33 +39,32 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>twitterkit-tzbWd2NzUNmFqGMfoVWVu5Qum</string>
+				<string>com.coretwist.One-Star</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-    <key>Fabric</key>
-    <dict>
-        <key>APIKey</key>
-        <string>f279aa28d7485e4b092b2bbfd85b3a3695f749f8</string>
-        <key>Kits</key>
-        <array>
-            <dict>
-                <key>KitInfo</key>
-                <dict>
-                    
-                    <key>consumerKey</key>
-                    <string>RwjxnscSgpvWs7SvlAhgEszY8</string>
-                    <key>consumerSecret</key>
-                    <string>QVq2YwIVurP8i2TOcv5gqukjaxQM3Cb868Eu0IWNXblV1Fi8eP</string>
-                </dict>
-                <key>KitName</key>
-                <string>Twitter</string>
-            </dict>
-        </array>
-    </dict>
-    <key>FacebookAppID</key>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>f279aa28d7485e4b092b2bbfd85b3a3695f749f8</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict>
+					<key>consumerKey</key>
+					<string>RwjxnscSgpvWs7SvlAhgEszY8</string>
+					<key>consumerSecret</key>
+					<string>QVq2YwIVurP8i2TOcv5gqukjaxQM3Cb868Eu0IWNXblV1Fi8eP</string>
+				</dict>
+				<key>KitName</key>
+				<string>Twitter</string>
+			</dict>
+		</array>
+	</dict>
+	<key>FacebookAppID</key>
 	<string>1776152052656652</string>
 	<key>FacebookDisplayName</key>
 	<string>One Star</string>
@@ -78,6 +77,11 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Scan barcode and earn stickers</string>
 	<key>NSLocationAlwaysUsageDescription</key>
