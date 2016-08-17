@@ -70,7 +70,7 @@ class EarnStickersViewController: UIViewController, CLLocationManagerDelegate, M
         
         locationManager.stopUpdatingLocation()
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-       // print("locations = \(locValue.latitude) \(locValue.longitude)")
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
         getLocationAddress(location: locations[0])
         
         

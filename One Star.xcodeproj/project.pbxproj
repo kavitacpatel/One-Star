@@ -29,7 +29,6 @@
 		63D0E5991D512F4A00E55F62 /* One Star Stickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 63D0E58A1D512F4A00E55F62 /* One Star Stickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		63D7F0F31D539C030025C8D1 /* InitialPrefSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D7F0F21D539C030025C8D1 /* InitialPrefSetup.swift */; };
 		63D7F0F51D53A2F30025C8D1 /* ScanProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D7F0F41D53A2F30025C8D1 /* ScanProductsViewController.swift */; };
-		6BC2F23B1D5B87D000618FD3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 630F3C1C1D4F750600E20EB3 /* Info.plist */; };
 		6BC2F23D1D5B8E9200618FD3 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC2F23C1D5B8E9200618FD3 /* SafariServices.framework */; };
 		6BC2F23F1D5B8E9800618FD3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC2F23E1D5B8E9800618FD3 /* SystemConfiguration.framework */; };
 		6BC2F2411D5B8EA000618FD3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC2F2401D5B8EA000618FD3 /* Security.framework */; };
@@ -491,7 +490,6 @@
 				6BEF4D4D1D5B7AB90090000D /* GoogleService-Info.plist in Resources */,
 				630F3C181D4F750600E20EB3 /* Assets.xcassets in Resources */,
 				630F3C131D4F750600E20EB3 /* Main.storyboard in Resources */,
-				6BC2F23B1D5B87D000618FD3 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

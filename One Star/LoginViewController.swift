@@ -18,23 +18,22 @@ import Google
 class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButtonDelegate, GIDSignInDelegate, GIDSignInUIDelegate
 {
     var url: URL!
-    //var FBRef = FIRFacebookAuthProviderID(
-    
     var userNM: String = "User"
     var provider: String = ""
     var ref: FIRDatabaseReference?
+    
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var pwTxt: UITextField!
-    @IBOutlet weak var fbLoginBtn: FBSDKLoginButton! = FBSDKLoginButton()
-  
+    @IBOutlet weak var fbLoginBtn: FBSDKButton! 
+    @IBOutlet weak var twitterLogin: TWTRLogInButton!
     
     override func viewDidLoad()
     {
         
         super.viewDidLoad()
+        
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
-        
         GIDSignIn.sharedInstance().clientID = "1037434301168-0m55pao2fqsn3ktkhq23ntgm4dcstsgj.apps.googleusercontent.com"
     
         let Base_URL: String = "https://one-star.firebaseio.com/"
@@ -42,16 +41,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         getUser()
         emailTxt.text = ""
         pwTxt.text = ""
-       // fbLoginBtn = FBSDKLoginButton()
-        fbLoginBtn.readPermissions = ["public_profile", "email"]
-        fbLoginBtn.delegate = self
-      
+       // fbLoginBtn.readPermissions = ["public_profile", "email"]
+       // fbLoginBtn.delegate = self
+       
     }
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
-       // twitterBtn.isEnabled = true
-        
+        try! FIRAuth.auth()?.signOut()
+        if GIDSignIn.sharedInstance().currentUser != nil
+        {
+            GIDSignIn.sharedInstance().signOut()
+        }
+        if Twitter.sharedInstance().sessionStore.session()?.userID != nil
+        {
+           Twitter.sharedInstance().sessionStore.logOutUserID((Twitter.sharedInstance().sessionStore.session()?.userID)!)
+        }
     }
     func getUser()
     {
@@ -68,8 +73,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
                 
             }
             
-            //let photoUrl = user.photoURL
-            //print(user.uid)
             self.performSegue(withIdentifier: "mainControllerSegue", sender: self)
         }
         else
@@ -78,7 +81,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         }
         
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?)
+    {
         if segue.identifier == "mainControllerSegue"
         {
             let vc = (segue.destinationViewController as! UITabBarController)
@@ -179,7 +183,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         
     }
     
-    
+       
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: NSError!)
     {
         if error != nil
@@ -213,20 +217,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     
     @IBAction func twitterLogin_Pressed(_ sender: AnyObject)
     {
-       
-        Twitter.sharedInstance().logIn(withMethods: .all) { (session: TWTRSession?, err: NSError?) in
-            if (session != nil)
-            {
-                //print("signed in as \(session?.userName)")
-                self.userNM = (session?.userName)!
-                self.performSegue(withIdentifier: "mainControllerSegue", sender: self)
+            Twitter.sharedInstance().logIn(withMethods: .all) { (session: TWTRSession?, err: NSError?) in
+                if (session != nil)
+                {
+                    //print("signed in as \(session?.userName)")
+                    self.userNM = (session?.userName)!
+                    self.performSegue(withIdentifier: "mainControllerSegue", sender: self)
+                    
+                }
+                else
+                {
+                    print("error: \(err?.localizedDescription)")
+                }
                 
-            }
-            else
-            {
-                print("error: \(err?.localizedDescription)")
-            }
-            
         }
         
     }
@@ -236,6 +239,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         if GIDSignIn.sharedInstance().currentUser != nil
         {
             userNM = GIDSignIn.sharedInstance().currentUser.profile.email
+           
            // self.performSegue(withIdentifier: "mainControllerSegue", sender: self)
         }
         else
@@ -257,6 +261,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         }
         
     }
+   
+    
     func showalert(_ title: String, msg:String)
     {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)

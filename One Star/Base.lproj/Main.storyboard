@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Delegate-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="One_Star" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,31 +19,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images-1" translatesAutoresizingMaskIntoConstraints="NO" id="qfV-q9-9f0"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goM-3g-zZU">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="ETe-xd-6Yf"/>
                                     <constraint firstAttribute="height" constant="30" id="mX0-qK-SEM"/>
                                 </constraints>
-                                <state key="normal" title="Login"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="1" green="0.1061359315" blue="0.047582644389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="emailLogin_Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gtn-4O-1AC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ttj-08-K8h" customClass="FBSDKLoginButton">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="67" id="wAr-Qd-U6H"/>
-                                    <constraint firstAttribute="height" constant="30" id="y2h-92-1XM"/>
+                                    <constraint firstAttribute="width" constant="35" id="wAr-Qd-U6H"/>
+                                    <constraint firstAttribute="height" constant="35" id="y2h-92-1XM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Facebook"/>
+                                <state key="normal" image="facebook"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="rlX-Eh-x2W"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynn-FH-ot2">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="8HF-sO-x77"/>
-                                    <constraint firstAttribute="height" constant="30" id="ysg-AN-Ptk"/>
+                                    <constraint firstAttribute="width" constant="35" id="8HF-sO-x77"/>
+                                    <constraint firstAttribute="height" constant="35" id="ysg-AN-Ptk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Twitter"/>
+                                <state key="normal" image="twitter"/>
                                 <connections>
                                     <action selector="twitterLogin_Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Ag-U7-Ca5"/>
                                 </connections>
@@ -64,40 +71,56 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHh-PF-fTs">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="52" id="Rjg-i0-o3j"/>
+                                    <constraint firstAttribute="width" constant="80" id="Rjg-i0-o3j"/>
                                     <constraint firstAttribute="height" constant="30" id="rc5-cO-Pvu"/>
                                 </constraints>
-                                <state key="normal" title="Sign up"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Sign up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="CreatAccount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fka-PS-2YV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cB-sC-ytS">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="iQD-lD-wPo"/>
-                                    <constraint firstAttribute="height" constant="30" id="rk7-uF-xQV"/>
+                                    <constraint firstAttribute="width" constant="35" id="iQD-lD-wPo"/>
+                                    <constraint firstAttribute="height" constant="35" id="rk7-uF-xQV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Google"/>
+                                <state key="normal" image="google"/>
                                 <connections>
                                     <action selector="googleLogin_Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dh4-fs-UxC"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple-touch-icon-180x180" translatesAutoresizingMaskIntoConstraints="NO" id="4ZS-wW-XBZ">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="L4m-Ff-gyc"/>
+                                    <constraint firstAttribute="height" constant="128" id="m2m-ym-2wt"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8cB-sC-ytS" secondAttribute="bottom" constant="50" id="65y-h2-w4b"/>
-                            <constraint firstItem="ynn-FH-ot2" firstAttribute="leading" secondItem="ttj-08-K8h" secondAttribute="trailing" constant="21" id="Ekk-aO-cFe"/>
+                            <constraint firstItem="4ZS-wW-XBZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="866-3B-Rfl"/>
+                            <constraint firstItem="ynn-FH-ot2" firstAttribute="leading" secondItem="ttj-08-K8h" secondAttribute="trailing" constant="15" id="Ekk-aO-cFe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ynn-FH-ot2" secondAttribute="bottom" constant="50" id="EnT-DW-JhQ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ttj-08-K8h" secondAttribute="bottom" constant="50" id="H4d-Em-Gbm"/>
                             <constraint firstItem="YHh-PF-fTs" firstAttribute="top" secondItem="goM-3g-zZU" secondAttribute="bottom" constant="20" id="JHP-lp-jCk"/>
                             <constraint firstItem="6VM-T0-eKn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="181" id="Mnu-f9-XdA"/>
                             <constraint firstItem="T0d-Mj-r89" firstAttribute="top" secondItem="6VM-T0-eKn" secondAttribute="bottom" constant="18" id="VNx-db-CLk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qfV-q9-9f0" secondAttribute="bottom" id="Wph-lf-ZIQ"/>
                             <constraint firstItem="T0d-Mj-r89" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="XI6-nK-B2h"/>
-                            <constraint firstItem="8cB-sC-ytS" firstAttribute="leading" secondItem="ynn-FH-ot2" secondAttribute="trailing" constant="20" id="aht-qb-Fc2"/>
+                            <constraint firstItem="4ZS-wW-XBZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="51" id="Xbo-Hb-Pzh"/>
+                            <constraint firstItem="8cB-sC-ytS" firstAttribute="leading" secondItem="ynn-FH-ot2" secondAttribute="trailing" constant="15" id="aht-qb-Fc2"/>
+                            <constraint firstAttribute="trailing" secondItem="qfV-q9-9f0" secondAttribute="trailing" id="asM-bg-FZI"/>
                             <constraint firstItem="goM-3g-zZU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dzL-N1-S3s"/>
                             <constraint firstItem="ynn-FH-ot2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fn5-0o-tBH"/>
+                            <constraint firstItem="qfV-q9-9f0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fpq-wD-cJI"/>
                             <constraint firstItem="YHh-PF-fTs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iJz-mX-JCI"/>
+                            <constraint firstItem="qfV-q9-9f0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="nga-7s-8qn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4ZS-wW-XBZ" secondAttribute="trailing" constant="52" id="q45-sb-fnB"/>
                             <constraint firstItem="6VM-T0-eKn" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="uHA-Cw-Uml"/>
                             <constraint firstItem="T0d-Mj-r89" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="uvJ-zM-Eh3"/>
                             <constraint firstItem="6VM-T0-eKn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="xMY-Je-kTa"/>
@@ -107,8 +130,9 @@
                     <navigationItem key="navigationItem" id="CZx-y7-bY9"/>
                     <connections>
                         <outlet property="emailTxt" destination="6VM-T0-eKn" id="XdK-hc-txr"/>
-                        <outlet property="fbLoginBtn" destination="ttj-08-K8h" id="DHF-UO-cOG"/>
+                        <outlet property="fbLoginBtn" destination="ttj-08-K8h" id="w3q-6a-mBh"/>
                         <outlet property="pwTxt" destination="T0d-Mj-r89" id="iAg-rK-ZnN"/>
+                        <outlet property="twitterLogin" destination="ynn-FH-ot2" id="BW6-FL-HaK"/>
                         <segue destination="GYn-FU-YW8" kind="show" identifier="mainControllerSegue" id="1fX-kC-Gth"/>
                     </connections>
                 </viewController>
@@ -362,6 +386,13 @@
             <point key="canvasLocation" x="-26.399999999999999" y="50.824587706146929"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="apple-touch-icon-180x180" width="180" height="180"/>
+        <image name="facebook" width="225" height="225"/>
+        <image name="google" width="204" height="204"/>
+        <image name="images-1" width="300" height="168"/>
+        <image name="twitter" width="204" height="204"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Bs9-6b-7Jy"/>
     </inferredMetricsTieBreakers>
