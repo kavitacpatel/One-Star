@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="739916-awesome-background-images" translatesAutoresizingMaskIntoConstraints="NO" id="qfV-q9-9f0">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images-1" translatesAutoresizingMaskIntoConstraints="NO" id="qfV-q9-9f0">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goM-3g-zZU">
@@ -375,7 +375,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eFW-ST-Z3b" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ecp-VB-CrQ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ecp-VB-CrQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -390,10 +390,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="739916-awesome-background-images" width="1950" height="990"/>
         <image name="apple-touch-icon-180x180" width="180" height="180"/>
         <image name="facebook" width="225" height="225"/>
         <image name="google" width="204" height="204"/>
+        <image name="images-1" width="300" height="168"/>
         <image name="twitter" width="204" height="204"/>
     </resources>
     <inferredMetricsTieBreakers>
