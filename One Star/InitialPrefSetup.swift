@@ -16,7 +16,7 @@ class InitialPrefSetup {
     }
     
     func setDevicePreferance(){
-        UIApplication.shared().isIdleTimerDisabled = true
+        UIApplication.shared.isIdleTimerDisabled = true
     
     }
     

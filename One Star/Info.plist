@@ -39,7 +39,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.coretwist.One-Star</string>
+				<string>twitterkit-tzbWd2NzUNmFqGMfoVWVu5Qum</string>
 			</array>
 		</dict>
 		<dict>
@@ -47,7 +47,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>twitterkit-tzbWd2NzUNmFqGMfoVWVu5Qum</string>
+				<string>com.coretwist.One-Star</string>
 			</array>
 		</dict>
 	</array>

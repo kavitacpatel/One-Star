@@ -6,7 +6,7 @@
 //  Copyright © 2016 coretwist. All rights reserved.
 //
 
-import Foundation
+//import Foundation
 import UIKit
 import AVFoundation
 
@@ -35,10 +35,10 @@ class ScanProductViewController: UIViewController, AVCaptureMetadataOutputObject
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cancleScaningProduct.backgroundColor = UIColor.clear()
+        cancleScaningProduct.backgroundColor = UIColor.clear
         cancleScaningProduct.layer.cornerRadius = 5
         cancleScaningProduct.layer.borderWidth = 4
-        cancleScaningProduct.layer.borderColor = UIColor.red().cgColor
+        cancleScaningProduct.layer.borderColor = UIColor.red.cgColor
         
         startScanning()
         
@@ -50,7 +50,7 @@ class ScanProductViewController: UIViewController, AVCaptureMetadataOutputObject
     
     func startScanning(){
         print("open camera")
-        view.backgroundColor = UIColor.white()
+        view.backgroundColor = UIColor.white
         captureSession = AVCaptureSession()
         
         let videoCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -99,7 +99,7 @@ class ScanProductViewController: UIViewController, AVCaptureMetadataOutputObject
             captureSession.stopRunning();
         }
     }
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, from connection: AVCaptureConnection!) {
+    private func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, from connection: AVCaptureConnection!) {
         captureSession.stopRunning()
         
         if let metadataObject = metadataObjects.first {

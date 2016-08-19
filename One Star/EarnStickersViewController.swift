@@ -6,10 +6,10 @@
 //  Copyright © 2016 coretwist. All rights reserved.
 //
 
-import Foundation
+//import Foundation
 import UIKit
-import CoreLocation
-import CoreData
+//import CoreLocation
+//import CoreData
 import AVFoundation
 import MapKit
 
@@ -83,7 +83,7 @@ class EarnStickersViewController: UIViewController, CLLocationManagerDelegate, M
         geocoder.reverseGeocodeLocation(location, completionHandler: {(placemarks, error)->Void in
             var placemark:CLPlacemark!
             
-            if error == nil && placemarks?.count > 0 {
+            if error == nil && (placemarks?.count)! > 0 {
                 placemark = (placemarks?[0])! as CLPlacemark
                 
                 var addressString : String = ""
@@ -142,16 +142,10 @@ class EarnStickersViewController: UIViewController, CLLocationManagerDelegate, M
         
     }
     
-    func mapView(_ mapView: MKMapView, didFailToLocateUserWithError error: NSError) {
+    func mapView(_ mapView: MKMapView, didFailToLocateUserWithError error: Error) {
         
         print("This is problem")
     }
-    
-    
-    override func prefersStatusBarHidden() -> Bool {
-        return false
-    }
-    
     
     
     

@@ -26,7 +26,6 @@
 		63D0E5901D512F4A00E55F62 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D0E58F1D512F4A00E55F62 /* MessagesViewController.swift */; };
 		63D0E5931D512F4A00E55F62 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63D0E5911D512F4A00E55F62 /* MainInterface.storyboard */; };
 		63D0E5951D512F4A00E55F62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63D0E5941D512F4A00E55F62 /* Assets.xcassets */; };
-		63D0E5991D512F4A00E55F62 /* One Star Stickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 63D0E58A1D512F4A00E55F62 /* One Star Stickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		63D7F0F31D539C030025C8D1 /* InitialPrefSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D7F0F21D539C030025C8D1 /* InitialPrefSetup.swift */; };
 		63D7F0F51D53A2F30025C8D1 /* ScanProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D7F0F41D53A2F30025C8D1 /* ScanProductsViewController.swift */; };
 		6BC2F23D1D5B8E9200618FD3 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC2F23C1D5B8E9200618FD3 /* SafariServices.framework */; };
@@ -56,28 +55,7 @@
 			remoteGlobalIDString = 630F3C091D4F750500E20EB3;
 			remoteInfo = "One Star";
 		};
-		63D0E5971D512F4A00E55F62 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 630F3C021D4F750500E20EB3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 63D0E5891D512F4900E55F62;
-			remoteInfo = "One Star Stickers";
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		63D0E59D1D512F4A00E55F62 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				63D0E5991D512F4A00E55F62 /* One Star Stickers.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		21F1D545C855A0427FE1B5D5 /* Pods_One_StarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_One_StarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +95,9 @@
 		6B55CF161D5C0F9000E03EAF /* libtidy.A.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libtidy.A.tbd; path = usr/lib/libtidy.A.tbd; sourceTree = SDKROOT; };
 		6B55CF181D5C0FCB00E03EAF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../Library/Developer/Xcode/DerivedData/One_Star-gcfvxsynalhobjdxnpwuzwaqfqxc/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework"; sourceTree = "<group>"; };
 		6B55CF1A1D5C0FE300E03EAF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		6B7FDA671D674C4D00E13EEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6B7FDA691D674C5400E13EEA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6B7FDA6C1D675DC200E13EEA /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Library/Developer/Xcode/DerivedData/One_Star-gzwjxiqjrnowficbltwbhjcxagpd/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework"; sourceTree = "<group>"; };
 		6B87AA201D5C1E70007A6B35 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = ../google_signin_sdk_4_0_0/GoogleSignIn.framework; sourceTree = "<group>"; };
 		6BC2F23C1D5B8E9200618FD3 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		6BC2F23E1D5B8E9800618FD3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -279,6 +260,9 @@
 		63D0E58B1D512F4A00E55F62 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6B7FDA6C1D675DC200E13EEA /* Bolts.framework */,
+				6B7FDA691D674C5400E13EEA /* AVFoundation.framework */,
+				6B7FDA671D674C4D00E13EEA /* Foundation.framework */,
 				6B87AA201D5C1E70007A6B35 /* GoogleSignIn.framework */,
 				6B55CF1A1D5C0FE300E03EAF /* CoreData.framework */,
 				6B55CF181D5C0FCB00E03EAF /* Bolts.framework */,
@@ -333,7 +317,6 @@
 				630F3C061D4F750500E20EB3 /* Sources */,
 				630F3C071D4F750500E20EB3 /* Frameworks */,
 				630F3C081D4F750500E20EB3 /* Resources */,
-				63D0E59D1D512F4A00E55F62 /* Embed App Extensions */,
 				B3FC47357E6A8C8F258B8113 /* [CP] Embed Pods Frameworks */,
 				CFF3D23D9BA52B6A9948DA4B /* [CP] Copy Pods Resources */,
 				6BC2F2481D5B90D100618FD3 /* ShellScript */,
@@ -341,7 +324,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				63D0E5981D512F4A00E55F62 /* PBXTargetDependency */,
 			);
 			name = "One Star";
 			productName = "One Star";
@@ -709,11 +691,6 @@
 			target = 630F3C091D4F750500E20EB3 /* One Star */;
 			targetProxy = 630F3C2D1D4F750600E20EB3 /* PBXContainerItemProxy */;
 		};
-		63D0E5981D512F4A00E55F62 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 63D0E5891D512F4900E55F62 /* One Star Stickers */;
-			targetProxy = 63D0E5971D512F4A00E55F62 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -759,8 +736,10 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -807,8 +786,10 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -837,11 +818,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EF0C6480CA5FFFC16F437AAA /* Pods-One Star.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "One Star/One Star.entitlements";
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = R2U6P9ZT8A;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -861,11 +842,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6402E7DB86811CF2D0452F35 /* Pods-One Star.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "One Star/One Star.entitlements";
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = R2U6P9ZT8A;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

@@ -15,24 +15,24 @@ class DeviceInfromation {
     
     init() {
         
-        UIDevice.current().isBatteryMonitoringEnabled = true
+        UIDevice.current.isBatteryMonitoringEnabled = true
         NotificationCenter.default.addObserver(self, selector:#selector(DeviceInfromation.batteryLevelChanged(batteryNotification:)), name: NSNotification.Name.UIDeviceBatteryLevelDidChange, object: nil)
     }
     
     
     
     @objc func batteryLevelChanged(batteryNotification: Notification){
-        print(UIDevice.current().batteryLevel)
+        print(UIDevice.current.batteryLevel)
     }
     
     func checkBatteryLevel() ->  Float {
         
-        return UIDevice.current().batteryLevel
+        return UIDevice.current.batteryLevel
     }
     
     func checkBatteryState(){
         
-        switch UIDevice.current().batteryState {
+        switch UIDevice.current.batteryState {
         case .charging:
             print("phone chargin battery")
         case .full:

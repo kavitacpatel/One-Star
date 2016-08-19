@@ -7,8 +7,8 @@
 //
 import UIKit
 import Firebase
-//import FirebaseDatabase
-//import FirebaseAuth
+import FirebaseDatabase
+import FirebaseAuth
 import FBSDKCoreKit
 import FBSDKLoginKit
 import TwitterKit
@@ -17,14 +17,15 @@ import Google
 
 class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButtonDelegate, GIDSignInDelegate, GIDSignInUIDelegate
 {
+   
     var url: URL!
     var userNM: String = "User"
     var provider: String = ""
-    var ref: FIRDatabaseReference?
+    var ref = FIRDatabaseReference.init()
     
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var pwTxt: UITextField!
-    @IBOutlet weak var fbLoginBtn: FBSDKButton! 
+    @IBOutlet weak var fbLoginBtn: FBSDKLoginButton!
     @IBOutlet weak var twitterLogin: TWTRLogInButton!
     
     override func viewDidLoad()
@@ -41,14 +42,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         getUser()
         emailTxt.text = ""
         pwTxt.text = ""
-       // fbLoginBtn.readPermissions = ["public_profile", "email"]
-       // fbLoginBtn.delegate = self
+        fbLoginBtn.readPermissions = ["public_profile", "email"]
+        fbLoginBtn.delegate = self
        
     }
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
-        try! FIRAuth.auth()?.signOut()
+       /* try! FIRAuth.auth()?.signOut()
         if GIDSignIn.sharedInstance().currentUser != nil
         {
             GIDSignIn.sharedInstance().signOut()
@@ -56,7 +57,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         if Twitter.sharedInstance().sessionStore.session()?.userID != nil
         {
            Twitter.sharedInstance().sessionStore.logOutUserID((Twitter.sharedInstance().sessionStore.session()?.userID)!)
-        }
+        }*/
     }
     func getUser()
     {
@@ -81,11 +82,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         }
         
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.identifier == "mainControllerSegue"
         {
-            let vc = (segue.destinationViewController as! UITabBarController)
+            let vc = (segue.destination as! UITabBarController)
             let destinationViewController = vc.viewControllers![1] as! EarnStickersViewController
             destinationViewController.user = userNM
             
@@ -120,7 +121,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
             if error != nil
             {
                 
-                if let errCode = FIRAuthErrorCode(rawValue: error!.code)
+                if let errCode = FIRAuthErrorCode(rawValue: error!._code)
                 {
                     
                     switch errCode
@@ -140,8 +141,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
             {
                 
                 print("all good... continue")
-                
-                // self.performSegue(withIdentifier: "DetailSegue", sender: self)
                 self.getUser()
             }
         }
@@ -152,18 +151,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         {
             try! FIRAuth.auth()?.signOut()
         }
-        FIRAuth.auth()!.signIn(withEmail: self.emailTxt.text!, password: self.pwTxt.text!, completion: { (user:FIRUser?, err:NSError?) in
-            if err != nil
+        FIRAuth.auth()?.signIn(withEmail: self.emailTxt.text!, password: self.pwTxt.text!, completion: { (user: FIRUser?, err: Error?) in
+              if err != nil
             {
-                if err?.code == 17011
+                if err?._code == 17011
                 {
                     self.showalert("Email Login Error", msg: "User not found.")
                 }
-                else if err?.code == 17009
+                else if err?._code == 17009
                 {
                     self.showalert("Email Login Error", msg: "The password is invalid")
                 }
-                else if err?.code == 17999
+                else if err?._code == 17999
                 {
                     self.showalert("Email Login Error", msg: "Missing password.")
                 }
@@ -183,17 +182,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         
     }
     
-       
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: NSError!)
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!)
     {
-        if error != nil
-        {
-            showalert("Facebook Login Error", msg: error.localizedDescription)
-        }
-        else
-        {
-          
-            FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields":"first_name,last_name"]).start { (connection, result, error) -> Void in
+       FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields":"first_name,last_name"]).start { (connection, fbresult, error) -> Void in
                 
                 if error != nil
                 {
@@ -201,12 +192,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
                 }
                 else
                 {
-                    self.userNM = (result?.value(forKey: "first_name") as! String) + " " + (result?.value(forKey: "last_name")! as! String)
+                    let resultdict = fbresult as! NSDictionary
+                    self.userNM = ("\(resultdict.object(forKey: "first_name") as! String) \(resultdict.object(forKey: "last_name") as! String)")
+                    
                     self.performSegue(withIdentifier: "mainControllerSegue", sender: self)
                 }
                 
             }
-        }
     }
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!)
     {
@@ -217,21 +209,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     
     @IBAction func twitterLogin_Pressed(_ sender: AnyObject)
     {
-            Twitter.sharedInstance().logIn(withMethods: .all) { (session: TWTRSession?, err: NSError?) in
-                if (session != nil)
-                {
-                    //print("signed in as \(session?.userName)")
-                    self.userNM = (session?.userName)!
-                    self.performSegue(withIdentifier: "mainControllerSegue", sender: self)
-                    
-                }
-                else
-                {
-                    print("error: \(err?.localizedDescription)")
-                }
+        Twitter.sharedInstance().logIn { (session: TWTRSession?, err: Error?) in
+            if (session != nil)
+            {
+                //print("signed in as \(session?.userName)")
+                self.userNM = (session?.userName)!
+                self.performSegue(withIdentifier: "mainControllerSegue", sender: self)
                 
+            }
+            else
+            {
+                print("error: \(err?.localizedDescription)")
+            }
         }
-        
+           
     }
     
     @IBAction func googleLogin_Pressed(_ sender: AnyObject)
@@ -248,7 +239,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         }
         
     }
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: NSError!)
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!)
     {
         if error != nil
         {
@@ -256,6 +247,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         }
         else
         {
+            
             userNM = user.profile.email
             self.performSegue(withIdentifier: "mainControllerSegue", sender: self)
         }
